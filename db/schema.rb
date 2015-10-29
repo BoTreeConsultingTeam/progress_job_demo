@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20141107151357) do
 
-  create_table "delayed_jobs", force: true do |t|
+  create_table "delayed_jobs", force: :cascade do |t|
     t.integer  "priority",         default: 0, null: false
     t.integer  "attempts",         default: 0, null: false
     t.text     "handler",                      null: false
@@ -30,9 +30,9 @@ ActiveRecord::Schema.define(version: 20141107151357) do
     t.integer  "progress_max",     default: 0
   end
 
-  add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
+  add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority"
 
-  create_table "users", force: true do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
     t.datetime "created_at"
